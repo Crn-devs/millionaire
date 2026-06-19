@@ -118,6 +118,10 @@ const form = document.getElementById('millionaireForm');
 const resultContent = document.getElementById('resultContent');
 const resultSection = document.getElementById('result');
 
+const countingSound = new Audio('./sounds/counting-money.mp3');
+const winningSound = new Audio('./sounds/winner.mp3');
+const losingSound = new Audio('./sounds/loser.mp3');
+
 form.addEventListener('submit', (e) => {
   e.preventDefault();
 
@@ -161,6 +165,9 @@ form.addEventListener('submit', (e) => {
   // Speed up matrix while "thinking"
   frameDelay = 15;
 
+  countingSound.currentTime = 0;
+  countingSound.play();
+
   resultContent.innerHTML = `
     <div class="animate-pulse">
       <h2 class="text-3xl font-black text-green-400">
@@ -192,15 +199,11 @@ form.addEventListener('submit', (e) => {
       requiredMonthlySavings - monthlySavings,
     );
 
-    console.log({
-      requiredMonthlySavings,
-      monthlySavings,
-      futureValue,
-    });
-
     result.classList.remove('hidden');
 
     if (millionaire) {
+      winningSound.currentTime = 0;
+      winningSound.play();
       resultContent.innerHTML = `
         <h2 class="text-5xl font-black text-green-400 mb-4">
           🎉 YOU WIN!
@@ -235,6 +238,8 @@ form.addEventListener('submit', (e) => {
         </div>
       `;
     } else {
+      losingSound.currentTime = 0;
+      losingSound.play();
       resultContent.innerHTML = `
         <h2 class="text-5xl font-black text-red-400 mb-4">
           ❌ GAME OVER
