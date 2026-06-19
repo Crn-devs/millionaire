@@ -2,7 +2,7 @@
   "name": "Who Wants To Be A Millionaire?",
   "short_name": "Millionaire",
   "description": "Can your monthly investments make you a millionaire?",
-  "start_url": "/",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#22c55e",
