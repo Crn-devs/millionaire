@@ -1,6 +1,17 @@
-const CACHE_NAME = 'millionaire-v1';
+const CACHE_NAME = 'millionaire-v2';
 
-const ASSETS = ['/', '/index.html', '/app.js', '/styles.css', '/manifest.json'];
+const ASSETS = [
+  './',
+  './index.html',
+  './app.js',
+  './styles.css',
+  './manifest.json',
+
+  './sounds/click.mp3',
+  './sounds/win.mp3',
+  './sounds/lose.mp3',
+  './sounds/counting.mp3',
+];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
