@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Who Wants To Be A Millionaire?</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <link rel="manifest" href="manifest.json" />
+
+    <meta name="theme-color" content="#22c55e" />
+
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Millionaire" />
+
+    <link rel="apple-touch-icon" href="icons/icon-192.png" />
+
+</head>
+
+<body class="bg-black text-white">
+
+    <!-- Matrix Background -->
+    <canvas id="moneyCanvas"></canvas>
+
+    <main class="relative z-10 py-12 px-4">
+
+        <div
+            class="w-full max-w-xl mx-auto backdrop-blur-md bg-black/40 border border-green-500/30 rounded-3xl p-8 shadow-2xl">
+
+            <!-- Header -->
+            <div class="text-center mb-8">
+                <h1 class="text-4xl md:text-5xl font-black text-green-400 mb-3">
+                    💰 Who Wants To Be A Millionaire?
+                </h1>
+
+                <p class="text-gray-300">
+                    Enter your age, monthly savings and retirement goal to find
+                    out whether you'll hit a £1,000,000 portfolio.
+                </p>
+            </div>
+
+            <!-- Form -->
+            <form id="millionaireForm" class="space-y-6">
+
+                <!-- Current Age -->
+                <div>
+                    <label for="currentAge" class="block text-sm font-semibold mb-2">
+                        Current Age
+                    </label>
+
+                    <input id="currentAge" type="number" min="18" max="100" value="25"
+                        class="w-full rounded-xl bg-black/50 border border-green-500/30 px-4 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-green-400" />
+                </div>
+
+                <!-- Monthly Savings -->
+                <div>
+                    <label for="monthlySavings" class="block text-sm font-semibold mb-2">
+                        Monthly Savings (£)
+                    </label>
+
+                    <input id="monthlySavings" type="number" min="1" value="500"
+                        class="w-full rounded-xl bg-black/50 border border-green-500/30 px-4 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-green-400" />
+                </div>
+
+                <!-- Retirement Goal -->
+                <div>
+                    <label for="retirementTarget" class="block text-sm font-semibold mb-2">
+                        Retirement Goal
+                    </label>
+
+                    <select id="retirementTarget"
+                        class="w-full rounded-xl bg-black/50 border border-green-500/30 px-4 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-green-400">
+
+                        <option value="50">Age 50</option>
+                        <option value="55">Age 55</option>
+                        <option value="60" selected>Age 60</option>
+                        <option value="65">Age 65</option>
+                        <option value="70">Age 70</option>
+                        <option value="kids">Leave It For The Kids 👶</option>
+
+                    </select>
+                </div>
+
+                <!-- Submit -->
+                <button type="submit"
+                    class="w-full py-4 rounded-xl bg-green-500 hover:bg-green-400 text-black font-black text-xl transition-all duration-300 hover:scale-[1.02]">
+                    Can I Become A Millionaire?
+                </button>
+
+            </form>
+
+            <!-- Results -->
+            <section id="result" class="hidden mt-8 rounded-2xl bg-black/40 border border-green-500/20 p-6 text-center">
+
+                <div id="resultContent"></div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
